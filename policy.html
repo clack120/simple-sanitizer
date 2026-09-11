@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="color-scheme" content="light dark" />
+        <title>Privacy Policy</title>
+        <style>
+            :root {
+                --max-width: 650px;
+                --accent: #007aff;
+                --text-main: canvastext;
+            }
+            body {
+                font-family:
+                    system-ui,
+                    -apple-system,
+                    sans-serif;
+                line-height: 1.6;
+                max-width: var(--max-width);
+                margin: 1rem auto;
+                padding: 0 1.5rem;
+                color: var(--text-main);
+                background: canvas;
+            }
+
+            .lang-control {
+                display: flex;
+                justify-content: flex-end;
+                margin-bottom: 2rem;
+            }
+            .lang-btn {
+                padding: 0.4rem 0.8rem;
+                border: 1px solid GrayText;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 0.85rem;
+                font-weight: 500;
+                background: Canvas;
+                user-select: none;
+            }
+            #lang-toggle {
+                display: none;
+            }
+
+            .en-ui::before {
+                content: "한국어로 읽기";
+            }
+            #lang-toggle:checked ~ .lang-control .en-ui::before {
+                content: "Read in English";
+            }
+
+            main section {
+                content-visibility: auto;
+                contain-intrinsic-size: 1px 100px;
+                margin-bottom: 2.5rem;
+            }
+
+            .ko,
+            .t-ko {
+                display: none;
+            }
+            #lang-toggle:checked ~ header .t-en,
+            #lang-toggle:checked ~ main .en {
+                display: none;
+            }
+            #lang-toggle:checked ~ header .t-ko,
+            #lang-toggle:checked ~ main .ko {
+                display: block;
+            }
+
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                border-bottom: 1px solid GrayText;
+                margin-bottom: 2rem;
+            }
+            h1 {
+                font-size: 1.3rem;
+                margin: 0.5rem 0;
+            }
+
+            h2 {
+                margin: 0;
+                margin-bottom: 1rem;
+                padding: 0;
+            }
+            h2 a {
+                color: inherit;
+                text-decoration: none;
+                display: block;
+                border-left: 4px solid var(--accent);
+                padding-left: 12px;
+                scroll-margin-top: 2rem;
+                font-size: 1.15rem;
+            }
+            h2 a:hover {
+                opacity: 0.7;
+            }
+
+            ul {
+                padding-left: 1.2rem;
+            }
+            small {
+                color: GrayText;
+                font-variant-numeric: tabular-nums;
+            }
+            p a {
+                color: var(--accent);
+            }
+
+            @media print {
+                .lang-control {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <input type="checkbox" id="lang-toggle" aria-label="Toggle language" />
+
+        <div class="lang-control">
+            <label for="lang-toggle" class="lang-btn">
+                <span class="en-ui"></span>
+            </label>
+        </div>
+
+        <header>
+            <h1 class="t-en">Privacy Policy</h1>
+            <h1 class="t-ko">개인정보 처리방침</h1>
+            <small class="t-en">Last Modified: 2026-02-26</small>
+            <small class="t-ko">마지막 수정일: 2026-02-27</small>
+        </header>
+
+        <main>
+            <section>
+                <h2 id="disclaimer">
+                    <a href="#disclaimer" class="en" lang="en">0. Disclaimer</a>
+                    <a href="#disclaimer" class="ko" lang="ko">0. 면책 조항</a>
+                </h2>
+                <div class="en" lang="en">
+                    <p>
+                        This extension is provided "as is." Its primary function
+                        is to prevent your home address from being exposed on
+                        simple Google searches or shopping carts. However, you
+                        should never rely on this extension for complete
+                        security. Even on supported websites, minor updates may
+                        cause your address not to be hidden, so always remain
+                        cautious.
+                    </p>
+                </div>
+                <div class="ko" lang="ko">
+                    <p>
+                        본 확장 프로그램은 있는 그대로 제공됩니다. 단순 구글
+                        검색 또는 장바구니 등에 집 주소가 표시되어 유출되지
+                        않도록 방어하는 역할을 합니다. 절대로 이 확장 프로그램을
+                        사용함으로써 안심해서는 안됩니다. 지원 목록에 있는
+                        웹사이트더라도 사소한 업데이트로 인해 주소가 가려지지
+                        않을 가능성이 존재하므로 항상 조심해야 합니다.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2 id="collection">
+                    <a href="#collection" class="en" lang="en"
+                        >1. Data Collection</a
+                    >
+                    <a href="#collection" class="ko" lang="ko"
+                        >1. 수집하는 개인정보</a
+                    >
+                </h2>
+                <div class="en" lang="en">
+                    <p>
+                        This extension does not collect or transmit any personal
+                        data automatically. We only process the following when
+                        you contact us for support or feedback:
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Contact Identifiers:</strong> Depending on
+                            the channel (Email, Discord, or IP address).
+                        </li>
+                        <li>
+                            <strong>Communication Data:</strong> Form responses
+                            and chat logs voluntarily provided.
+                        </li>
+                    </ul>
+                </div>
+                <div class="ko" lang="ko">
+                    <p>
+                        본 확장 프로그램은 사용자의 데이터를 자동으로 수집하거나
+                        클라우드 서비스에 전송하지 않습니다. 문의 및 피드백
+                        시에만 다음 정보를 필요에 따라 처리합니다:
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>식별 정보:</strong> 문의 채널에 따라 이메일
+                            주소, 디스코드 ID, IP 주소 중 하나를 처리합니다.
+                        </li>
+                        <li>
+                            <strong>통신 내역:</strong> 사용자가 직접 입력한 폼
+                            데이터 및 채팅 내역.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2 id="purpose">
+                    <a href="#purpose" class="en" lang="en"
+                        >2. Purpose of Use</a
+                    >
+                    <a href="#purpose" class="ko" lang="ko"
+                        >2. 개인정보 수집 목적</a
+                    >
+                </h2>
+                <ul class="en" lang="en">
+                    <li>Resolving bugs and providing technical assistance.</li>
+                    <li>Improving features and optimization.</li>
+                </ul>
+                <ul class="ko" lang="ko">
+                    <li>버그 해결 및 기술 지원 응대.</li>
+                    <li>기능 개선 및 서비스 최적화.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 id="retention">
+                    <a href="#retention" class="en" lang="en"
+                        >3. Retention and Disposal</a
+                    >
+                    <a href="#retention" class="ko" lang="ko"
+                        >3. 보관 및 파기</a
+                    >
+                </h2>
+                <p class="en" lang="en">
+                    Collected data is permanently deleted once the purpose of
+                    the inquiry has been fulfilled. Inquiries via third-party
+                    platforms (Discord, Matrix) follow their own policies.
+                </p>
+                <p class="ko" lang="ko">
+                    수집된 정보는 데이터베이스에 저장되지 않으며 목적 달성 후
+                    지체 없이 파기합니다. 단, 외부 플랫폼(디스코드 등)을 통한
+                    문의는 해당 플랫폼의 정책을 따릅니다. 디스코드를 이용하게
+                    되면 디스코드로부터 닉네임, Snowflake ID, 채팅 내역을
+                    인수받으며 정책에 따라 감사 로그가 법정 기간에 따라
+                    저장됩니다. 본 프로그램 또는 서비스는 해당 데이터를 보유하지
+                    않습니다.
+                </p>
+            </section>
+
+            <section>
+                <h2 id="third-party">
+                    <a href="#third-party" class="en" lang="en"
+                        >4. Third-Party Disclosure</a
+                    >
+                    <a href="#third-party" class="ko" lang="ko"
+                        >4. 제3자 제공</a
+                    >
+                </h2>
+                <p class="en" lang="en">
+                    We do not share your personal information with third parties
+                    without explicit consent.
+                </p>
+                <p class="ko" lang="ko">
+                    사용자 동의 없이는 정보를 제3자에게 제공하거나 공유하지
+                    않습니다.
+                </p>
+            </section>
+
+            <section id="legal">
+                <h2 id="rights">
+                    <a href="#rights" class="en" lang="en"
+                        >5. Compliance and Rights</a
+                    >
+                    <a href="#rights" class="ko" lang="ko"
+                        >5. 법적 준수 및 권리</a
+                    >
+                </h2>
+                <div class="en" lang="en">
+                    <p>
+                        EU residents are entitled to rights under the GDPR,
+                        including the right to erasure and data portability.
+                        Children under the age of 14 must not submit inquiries
+                        on topics unrelated to the GDPR/CCPA (e.g., bug reports,
+                        etc.). We generally apply the CCPA's right to opt-out
+                        and right to limit by default.
+                    </p>
+                    <p>
+                        For GDPR or CCPA related inquiries:
+                        <a href="mailto:gdpr@o-n.li">gdpr@o-n.li</a><br />
+                        For general inquiries:
+                        <a href="mailto:admin@o-n.li">admin@o-n.li</a>
+                    </p>
+                </div>
+                <div class="ko" lang="ko">
+                    <p>
+                        본 서비스는 대한민국의 개인정보보호법을 전적으로
+                        준수하고 있습니다. 본 서비스는 민감 정보를 처리하지
+                        않으며, 개인정보 보호법 시행령에 따라 규모 미달로 인해
+                        개인정보 보호책임자가 필요하지 않으므로 사업자, 대표자
+                        또는 CPO는 존재하지 않습니다. 단, 유럽연합 국가 거주자는
+                        일반정보보호 규정에 따른 권리를 가집니다. 만 14세 미만
+                        아동은 일반정보보호 규정과 캘리포니아 소비자 프라이버시
+                        보호법에 관련되지 않은 주제에 대해서 절대 문의해서는
+                        안됩니다 (예: 버그 제보 등). 다른 문의 사항이 있는
+                        경우에 보호자가 대신하여야 합니다.
+                    </p>
+                    <p>
+                        일반정보보호 규정 또는 캘리포니아 소비자 프라이버시
+                        보호법에 관한 문의:
+                        <a href="mailto:gdpr@o-n.li">gdpr@o-n.li</a><br />
+
+                        일반 문의:
+                        <a href="mailto:admin@o-n.li">admin@o-n.li</a>
+                    </p>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

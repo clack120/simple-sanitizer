@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Simple Sanitizer",
+  "version": "__VERSION__",
+  "description": "주소 유출 등 치명적 실수를 1차 보완하려고 시도합니다. 절대 안전을 보장하지 않습니다.",
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["policy.html"],
+      "matches": ["*://*/*"]
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "bsdrop@users.noreply.github.com",
+      "strict_min_version": "115.0"
+    }
+  }
+}
