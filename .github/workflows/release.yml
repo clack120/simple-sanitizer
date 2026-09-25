@@ -34,34 +34,7 @@ jobs:
           USERSCRIPT_UPDATE_URL: https://github.com/${{ github.repository }}/releases/download/latest-alpha/simple-sanitizer.user.js
         run: npm run pack
 
-      - name: Add commit hash to asset names
-        shell: bash
-        run: |
-          short_sha="${GITHUB_SHA:0:12}"
-          mv dist/simple-sanitizer.user.js "dist/simple-sanitizer-${short_sha}.user.js"
-          mv dist/simple-sanitizer-extension.zip "dist/simple-sanitizer-extension-${short_sha}.zip"
-          cp "dist/simple-sanitizer-${short_sha}.user.js" dist/simple-sanitizer.user.js
-          cp "dist/simple-sanitizer-extension-${short_sha}.zip" dist/simple-sanitizer-extension.zip
-
-      - name: Create GitHub prerelease
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          short_sha="${GITHUB_SHA:0:12}"
-          tag="alpha-${GITHUB_SHA}-${GITHUB_RUN_NUMBER}"
-          gh release create "$tag" \
-            --target "$GITHUB_SHA" \
-            --title "Alpha ${short_sha} (#${GITHUB_RUN_NUMBER})" \
-            --prerelease \
-            --latest=false \
-            --generate-notes \
-            --notes "Commit: https://github.com/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}" \
-            "dist/simple-sanitizer-${short_sha}.user.js" \
-            "dist/simple-sanitizer-extension-${short_sha}.zip" \
-            dist/simple-sanitizer.user.js \
-            dist/simple-sanitizer-extension.zip
-
-      - name: Publish latest alpha update link
+      - name: Publish latest alpha release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
