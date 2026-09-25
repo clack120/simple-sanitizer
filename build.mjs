@@ -1,3 +1,4 @@
+import { execFileSync } from "node:child_process";
 import { cp, mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
@@ -11,15 +12,19 @@ const extOutDir = path.join(distDir, "extension");
 
 const pkg = JSON.parse(await readFile(path.join(root, "package.json"), "utf8"));
 const version = pkg.version;
+const updateUrl = process.env.USERSCRIPT_UPDATE_URL;
+const updateMetadata = updateUrl
+  ? `// @updateURL    ${updateUrl}\n// @downloadURL  ${updateUrl}\n`
+  : "";
 const description =
   "주소 유출 등 치명적 실수를 1차 보완하려고 시도합니다. 절대 안전을 보장하지 않습니다.";
 
-const metadata = `// ==UserScript==
+const metadata = (userscriptVersion) => `// ==UserScript==
 // @name         Simple Sanitizer
 // @namespace    https://github.com/
-// @version      ${version}
+// @version      ${userscriptVersion}
 // @description  ${description}
-// @match        *://*/*
+${updateMetadata}// @match        *://*/*
 // @run-at       document-start
 // @grant        GM_addStyle
 // ==/UserScript==
@@ -31,7 +36,7 @@ async function buildOnce() {
   await buildUserscript(body);
   await buildExtension(body);
 
-  console.log(`built userscript + extension (v${version})`);
+  console.log(`built userscript + extension (extension v${version})`);
 }
 
 async function assembleBody() {
@@ -57,8 +62,12 @@ async function assembleBody() {
 }
 
 async function buildUserscript(body) {
+  const commitHash =
+    process.env.GITHUB_SHA ||
+    execFileSync("git", ["rev-parse", "HEAD"], { cwd: root, encoding: "utf8" }).trim();
+  const userscriptVersion = `alpha-${Math.floor(Date.now() / 1000)}.${commitHash}`;
   await mkdir(distDir, { recursive: true });
-  await writeFile(userscriptOut, `${metadata}\n${body}`, "utf8");
+  await writeFile(userscriptOut, `${metadata(userscriptVersion)}\n${body}`, "utf8");
 }
 
 async function buildExtension(body) {
