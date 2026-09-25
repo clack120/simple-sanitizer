@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "node build.mjs",
+    "test": "node scripts/check-syntax.mjs",
     "watch": "node build.mjs --watch",
     "pack": "node build.mjs && node dev/pack.mjs",
     "serve": "node dev/server.mjs",
